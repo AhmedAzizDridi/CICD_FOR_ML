@@ -1,6 +1,6 @@
 import pandas as pd 
 
-data = pd.read_csv('Data\drug200.csv')
+data = pd.read_csv('Data/drug200.csv')
 data.head()
 
 from sklearn.model_selection import train_test_split
