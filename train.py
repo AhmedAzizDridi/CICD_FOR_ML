@@ -4,6 +4,7 @@ import pandas as pd
 
 # CI-safe backend for matplotlib
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -13,7 +14,12 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder, StandardScaler
-from sklearn.metrics import accuracy_score, f1_score, ConfusionMatrixDisplay, confusion_matrix
+from sklearn.metrics import (
+    accuracy_score,
+    f1_score,
+    ConfusionMatrixDisplay,
+    confusion_matrix,
+)
 
 # --- Paths & folders ---
 DATA_PATH = Path("Data") / "drug200.csv"
@@ -95,6 +101,7 @@ plt.close()
 # --- Persist model (skops) ---
 # Requires `skops` in requirements.txt
 import skops.io as sio
+
 model_path = MODEL_DIR / "drug_pipeline.skops"
 sio.dump(pipe, model_path)
 
